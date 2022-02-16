@@ -20,7 +20,7 @@ public class ItemService {
 	
 	public void save(ItemDTO itemDTO) {
 		//ItemModel item = itemRepository.findById(itemDTO.getIdItem()).get();
-		CarritoModel carritoSeleccionado = carritoRepository.findById(itemDTO.getCarrito_id()).get();
+		CarritoModel carritoSeleccionado = carritoRepository.findById(itemDTO.getIdCarrito()).get();
 		ItemModel nuevoItem = new ItemModel();
 			nuevoItem.setNombre(itemDTO.getNombre());
 			nuevoItem.setCategoria(itemDTO.getCategoria());

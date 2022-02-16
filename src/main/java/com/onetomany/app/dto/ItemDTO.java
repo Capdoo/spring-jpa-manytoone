@@ -10,20 +10,20 @@ public class ItemDTO {
 	
 	//Cambiar a id
 	//private CarritoModel carrito;
-	private long carrito_id;
+	private long idCarrito;
 	
 	public ItemDTO() {
 		super();
 	}
 
-	public ItemDTO(long idItem, String categoria, String nombre, int cantidad, double precio, long carrito_id) {
+	public ItemDTO(long idItem, String categoria, String nombre, int cantidad, double precio, long idCarrito) {
 		super();
 		this.idItem = idItem;
 		this.categoria = categoria;
 		this.nombre = nombre;
 		this.cantidad = cantidad;
 		this.precio = precio;
-		this.carrito_id = carrito_id;
+		this.idCarrito = idCarrito;
 	}
 
 	public long getIdItem() {
@@ -57,6 +57,14 @@ public class ItemDTO {
 		this.precio = precio;
 	}
 
+	public long getIdCarrito() {
+		return idCarrito;
+	}
+
+	public void setIdCarrito(long idCarrito) {
+		this.idCarrito = idCarrito;
+	}
+
 	/*
 	public CarritoModel getCarrito() {
 		return carrito;
@@ -66,13 +74,7 @@ public class ItemDTO {
 	}
 	 */
 
-	public long getCarrito_id() {
-		return carrito_id;
-	}
 
-	public void setCarrito_id(long carrito_id) {
-		this.carrito_id = carrito_id;
-	}
 	
 	
 }

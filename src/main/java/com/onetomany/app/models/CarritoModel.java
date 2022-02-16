@@ -20,20 +20,21 @@ public class CarritoModel {
 	@Column(name = "id_carrito")
 	private long idCarrito;
 	
+	@Column(unique=true)
 	private int idCliente;
 	private Date fechaCompra;
 	private double total;
 	private double impuestos;
 	
     @OneToMany(mappedBy="carrito")
-	private Set<ItemsModel> items;
+	private Set<ItemModel> items;
     
 	public CarritoModel() {
 		super();
 	}
 
 	public CarritoModel(long idCarrito, int idCliente, Date fechaCompra, double total, double impuestos,
-			Set<ItemsModel> items) {
+			Set<ItemModel> items) {
 		super();
 		this.idCarrito = idCarrito;
 		this.idCliente = idCliente;
@@ -84,11 +85,11 @@ public class CarritoModel {
 		this.impuestos = impuestos;
 	}
 
-	public Set<ItemsModel> getItems() {
+	public Set<ItemModel> getItems() {
 		return items;
 	}
 
-	public void setItems(Set<ItemsModel> items) {
+	public void setItems(Set<ItemModel> items) {
 		this.items = items;
 	}
 

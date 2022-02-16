@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="items")
-public class ItemsModel {
+public class ItemModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,11 +25,11 @@ public class ItemsModel {
 	@JoinColumn(name="carrito_id",referencedColumnName = "id_carrito", nullable=false)
 	private CarritoModel carrito;
 
-	public ItemsModel() {
+	public ItemModel() {
 		super();
 	}
 
-	public ItemsModel(long idItem, String categoria, String nombre, int cantidad, double precio, CarritoModel carrito) {
+	public ItemModel(long idItem, String categoria, String nombre, int cantidad, double precio, CarritoModel carrito) {
 		super();
 		this.idItem = idItem;
 		this.categoria = categoria;

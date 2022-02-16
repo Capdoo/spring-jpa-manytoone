@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.onetomany.app.dto.CarritoDTO;
+import com.onetomany.app.dto.ItemDTO;
 import com.onetomany.app.dto.MensajeDTO;
-import com.onetomany.app.services.CarritoService;
-
+import com.onetomany.app.services.ItemService;
 
 @RestController
-public class CarritoController {
+public class ItemController {
 
 	@Autowired
-	CarritoService carritoService;
-	
-	@PostMapping("/carrito")
+	ItemService itemService;
 	
 	
-	public ResponseEntity<Object> registrar(@RequestBody CarritoDTO carritoDTO){
-		carritoService.save(carritoDTO);
-		return new ResponseEntity<Object>(new MensajeDTO("Empleado(a) registrado(a)"),HttpStatus.OK);
+	@PostMapping("/item")
+	public ResponseEntity<Object> registrar(@RequestBody ItemDTO itemDTO){
+		itemService.save(itemDTO);
+		return new ResponseEntity<Object>(new MensajeDTO("Item guardado"), HttpStatus.OK);
 	}
+	
+	
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onetomany.app.dto.ItemDTO;
-import com.onetomany.app.dto.MensajeDTO;
+import com.onetomany.app.dto.MessageDTO;
 import com.onetomany.app.services.ItemService;
 
 @RestController
@@ -18,10 +18,10 @@ public class ItemController {
 	ItemService itemService;
 	
 	
-	@PostMapping("/item")
-	public ResponseEntity<Object> registrar(@RequestBody ItemDTO itemDTO){
+	@PostMapping("/items")
+	public ResponseEntity<Object> registerItem(@RequestBody ItemDTO itemDTO){
 		itemService.save(itemDTO);
-		return new ResponseEntity<Object>(new MensajeDTO("Item guardado"), HttpStatus.OK);
+		return new ResponseEntity<Object>(new MessageDTO("Item Saved"), HttpStatus.OK);
 	}
 	
 	

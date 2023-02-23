@@ -8,7 +8,6 @@ import com.onetomany.app.models.ItemModel;
 
 public interface ItemRepository extends JpaRepository<ItemModel, Long>{
 
-	
 	public Optional<ItemModel> findById(long id);
 	
 }

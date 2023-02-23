@@ -2,28 +2,26 @@ package com.onetomany.app.services;
 
 import java.util.Date;
 
+import com.onetomany.app.models.CartModel;
+import com.onetomany.app.repositories.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.onetomany.app.dto.CarritoDTO;
-import com.onetomany.app.models.CarritoModel;
-import com.onetomany.app.repositories.CarritoRepository;
+import com.onetomany.app.dto.CartDTO;
 
 @Service
 public class CarritoService {
-	
-	
+
 	@Autowired
-	CarritoRepository carritoRepository;
+	CartRepository cartRepository;
 	
-	public void save(CarritoDTO carritoDTO) {
-		//CarritoModel carrito = carritoRepository.findById(carritoDTO.getIdCarrito()).get();
-		CarritoModel nuevoCarrito = new CarritoModel();
-			nuevoCarrito.setIdCliente(carritoDTO.getIdCliente());
-			nuevoCarrito.setFechaCompra(new Date());
-			nuevoCarrito.setImpuestos(carritoDTO.getImpuestos());
-			nuevoCarrito.setTotal(carritoDTO.getTotal());
-		carritoRepository.save(nuevoCarrito);
+	public void save(CartDTO cartDTO) {
+		CartModel newCart = new CartModel();
+			newCart.setIdClient(cartDTO.getIdClient());
+			newCart.setPurchaseDate(new Date());
+			newCart.setTaxes(cartDTO.getTaxes());
+			newCart.setTotal(cartDTO.getTotal());
+		cartRepository.save(newCart);
 	}
 	
 

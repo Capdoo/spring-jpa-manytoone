@@ -5,31 +5,38 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="items")
+@Table(name="carts")
 @Data
 @AllArgsConstructor @NoArgsConstructor
 @Builder
-public class ItemModel {
+public class CartModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idItem;
-	private String category;
-	private String name;
-	private Integer quantity;
-	private Double price;
+	@Column(name = "id_cart")
+	private Long idCart;
 	
-	@ManyToOne
-	@JoinColumn(name="cart_id",referencedColumnName = "id_cart", nullable=false)
-	private CartModel cart;
+	@Column(unique=true)
+	private Integer idClient;
+	private Date purchaseDate;
+	private Double total;
+	private Double taxes;
+	
+    @OneToMany(mappedBy="cart")
+	private Set<ItemModel> items;
 
+
+	
 }

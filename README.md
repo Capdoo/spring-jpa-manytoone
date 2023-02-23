@@ -41,33 +41,23 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 ```
 
-## Ejecución
-
-Solo falta iniciar el proyecto a través de Spring Tools o Eclipse IDE 
-```
-Click derecho en el proyecto
-Run As
-Spring Boot App
-```
-
 ## Anotaciones
-
 * One To Many Annotation (@OneToMany)
-Identificamos el modelo origen y usamos la notación
+* Identificamos el modelo origen y usamos el parametro indicando el campo del modelo destino
+```
+@OneToMany(mappedBy="cart")
+private Set<ItemModel> items;
+```
+* Many To One (@ManyToOne) y referencedColumnName con el origen id
+* Identificamos el modelo destino y usamos la referencia al modelo origen
 ```
 @ManyToOne
-@JoinColumn(name="carrito_id",referencedColumnName = "id_carrito", nullable=false)
-private CarritoModel carrito;
+@JoinColumn(name="cart_id",referencedColumnName = "id_cart", nullable=false)
+private CartModel cart;
 ```
-* Many To One (@ManyToOne)y Mapped By Parameter (mappedBy)
-Identificamos el modelo destino y usamos el parametro indicando el campo en el modelo origen
-```
-@OneToMany(mappedBy="carrito")
-private Set<ItemModel> items;
 
-```
 ## Relación
-![plot](./src/main/resources/static/relacion.jpeg)
+![plot](./src/main/resources/static/relacion.png)
 
 ## Authors
 
